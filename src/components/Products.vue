@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <table>
         <tr>
           <th>id</th>
@@ -7,7 +7,7 @@
           <th>amount</th>
           <th>image</th>
         </tr>
-        <tr v-for="product in Products" :key="product.make">
+        <tr v-for="product in products" :key="product.id">
           <td>{{ product.id }}</td>
           <td>{{ product.make }}</td>
           <td>{{ product.spec }}</td>
@@ -18,8 +18,11 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import {mapActions, mapGetters } from 'vuex';
 export default {
+    computed: {
+    ...mapGetters(["products"]),    
+    },
     methods: {
     ...mapActions(["fetchAllProducts"]),
     },
@@ -34,7 +37,10 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    max-width: 600px;
+    max-width: 30rem;
+    margin: auto;
+    align-content: center;
+    justify-content: center;
 }
 
 td,th {
@@ -46,4 +52,4 @@ td,th {
 tr:nth-child(even) {
     background-color: #dddddd ; 
 }
-</style> -->
+</style>

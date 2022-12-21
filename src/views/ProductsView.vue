@@ -23,8 +23,11 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import {mapActions, mapGetters } from 'vuex';
 export default {
+    computed: {
+    ...mapGetters["products"],    
+    },
     methods: {
     ...mapActions(["fetchAllProducts"]),
     },
